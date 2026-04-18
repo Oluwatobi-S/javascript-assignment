@@ -1,12 +1,11 @@
+
 // Question 4
-/* Function 1 */
-/* Generates a random number between 1 and 100 */
+
 function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-/* Function 2 */
-/* Prompts the user to enter a number to guess the correct one */
+// Prompts the user to enter a number to guess the correct one */
 function getPlayerGuess(attempt) {
     let input;
 
@@ -200,3 +199,32 @@ const game = () => {
   console.log('===========================================');
 };
 
+
+function menu() {
+  let choice = null;
+
+  while (choice !== '3') {
+    choice = prompt(
+      `🎮 GAME MENU\n` +
+      `====================\n` +
+      `1. Number Guessing Game\n` +
+      `2. Rock, Paper, Scissors\n` +
+      `3. Exit\n` +
+      `====================\n` +
+      `Enter 1, 2, or 3:`
+    );
+
+    if (choice === null || choice === '3') {
+      console.log('Thanks for playing! Goodbye. 👋');
+      return;
+    } else if (choice === '1') {
+      game1();
+    } else if (choice === '2') {
+      game();
+    } else {
+      console.log(`❌ "${choice}" is not a valid option. Please enter 1, 2, or 3.`);
+    }
+  }
+}
+
+menu();
